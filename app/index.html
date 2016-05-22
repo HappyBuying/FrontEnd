@@ -10,13 +10,14 @@
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/libraries/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css">
-    <link href="assets/libraries/chartist/chartist.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/leaflet.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/leaflet.markercluster.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/leaflet.markercluster.default.css" rel="stylesheet" type="text/css">    
-    <link href="assets/css/villareal-turquoise.css" rel="stylesheet" type="text/css" id="css-primary">
+    <link href="styles/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="scripts/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="scripts/plugins/chartist/chartist.min.css" rel="stylesheet" type="text/css">
+    <link href="styles/leaflet.css" rel="stylesheet" type="text/css">
+    <link href="styles/leaflet.markercluster.css" rel="stylesheet" type="text/css">
+    <link href="styles/leaflet.markercluster.default.css" rel="stylesheet" type="text/css">    
+    <link href="styles/villareal-turquoise.css" rel="stylesheet" type="text/css" id="css-primary">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
     <!-- bower:css -->
     <!-- endbower -->
@@ -291,38 +292,39 @@
 
   
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.js"></script>
-    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="../bower_components/angular-resource/angular-resource.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
-    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="../bower_components/angular-touch/angular-touch.js"></script>
-    <script src="../bower_components/angular-aria/angular-aria.js"></script>
-    <script src="../bower_components/angular-messages/angular-messages.js"></script>
-    <script src="../bower_components/angular-material/angular-material.js"></script>
-    <script src="../bower_components/ngmap/build/scripts/ng-map.js"></script>
-    <script src="../bower_components/checklist-model/checklist-model.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/checklist-model/checklist-model.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <!-- endbower -->
-    <script type="text/javascript" src="assets/js/jquery.ezmark.min.js"></script>
-    <script type="text/javascript" src="assets/js/tether.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/gmap3.min.js"></script>
-    <script type="text/javascript" src="assets/js/leaflet.js"></script>
-    <script type="text/javascript" src="assets/js/leaflet.markercluster.js"></script>
-    <script type="text/javascript" src="assets/libraries/owl-carousel/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="assets/libraries/chartist/chartist.min.js"></script>
-    <script type="text/javascript" src="assets/js/scrollPosStyler.js"></script>
-    <script type="text/javascript" src="assets/js/villareal.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.ezmark.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/tether.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/gmap3.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/leaflet.js"></script>
+    <script type="text/javascript" src="scripts/plugins/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="scripts/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/chartist/chartist.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/scrollPosStyler.js"></script>
+    <script type="text/javascript" src="scripts/plugins/villareal.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <!--controllers-->
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <!--services-->
         <script src="scripts/services/property.js"></script>
+        <!--directives-->
+        <script src="scripts/directives/ezmark.js"></script>
         <!-- endbuild -->
 </body>
 </html>
