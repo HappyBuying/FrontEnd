@@ -32,6 +32,7 @@ angular.module('happyBuyingApp')
         Upload.upload({
           url: 'http://happybuying.images.s3-website-ap-southeast-1.amazonaws.com/', //S3 upload url including bucket name
           method: 'POST',
+          headers: {'Access-Control-Allow-Origin': 'POST,PUT, OPTIONS'},
           data: {
               key: file.name, // the key to store the file on S3, could be file name or customized
               AWSAccessKeyId: 'AKIAJABKAUGPWPCJM44Q',
