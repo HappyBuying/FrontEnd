@@ -25,14 +25,15 @@
                  <div class="row">
                      <div class="col-sm-4">
                          <div class="form-group">
-                             <label class="header-action" for="imgUpload" ngf-select="uploadFiles($files)" multiple="multiple">
-                                <i class="fa fa-upload"></i> <span>Upload Images</span>
+                             <label class="header-action" for="imgUpload">
+                                <i class="fa fa-upload"></i> <span>Upload Images</span>                                
                              </label>
+                             <input type='file' name='location.img' id='imgUpload' onchange= 'generateThumbnail(this)' multiple/>
                          </div>
                          <!-- /.form-group -->
                      </div>
                     
-                     <!-- /.col-* -->
+                     <!-- /.col-* -->                    
                  </div>
                  <!-- /.row -->
                  <div class="page-header page-header-small">
