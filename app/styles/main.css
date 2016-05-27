@@ -1,9 +1,15 @@
 label[for="imgUpload"]{
-  position: relative;
-  float: left;
-  top:auto;
+	position: relative;
+	float: left;
+	top:auto;
 }
 
 #imgUpload{
-  display: none;  
+	display: none;  
+}
+
+.thumbnail{
+	height: 75px;
+	float: right;
+	margin: 0 2px;
 }
