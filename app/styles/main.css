@@ -9,7 +9,15 @@ label[for="imgUpload"]{
 }
 
 .thumbnail{
-	height: 75px;
-	float: right;
-	margin: 0 2px;
+	height: 150px;
+	width: 150px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	}
+
+
 }
