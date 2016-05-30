@@ -12,12 +12,10 @@ angular.module('happyBuyingApp')
     $scope.property = {};
 
     $scope.company = {};
-
+  
     $scope.prop_company = {};
     $scope.prop_company.property = $scope.property;
     $scope.prop_company.company = $scope.company;
-
-
 
 
     //array of features for checkboxes

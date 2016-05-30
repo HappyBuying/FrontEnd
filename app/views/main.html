@@ -141,8 +141,9 @@
                                 <i class="fa fa-upload"></i> <span>Upload Images</span>                                
                              </label>
                              <input type='file' name='location.img' id='imgUpload' 
-                             onchange= 'generateThumbnail(this)' ng-model="property.image" multiple/>
+                             onchange= 'generateThumbnail(this)' multiple/>
                          </div>
+                         {{property.images}}
                          <!-- /.form-group -->
                      </div>
                  </div>
@@ -206,7 +207,7 @@
                      <!-- /.checkbox-->
                  </div>
                  <!-- /.checkbox-list -->
-   
+                 
                  <div class="center">
                      <a href="#/" class="btn btn-primary" ng-click="saveProperty(property)">Submit Property</a>
                  </div>

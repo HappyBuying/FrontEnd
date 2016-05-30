@@ -1,6 +1,13 @@
 function generateThumbnail(node){
 	
  	var files = node.files;
+
+ 	//inserting files into property.images
+ 	var scope = angular.element($(node)).scope();
+    scope.$apply(function(){
+    	scope.property.images = files;
+    });    
+ 	
  	//console.log(files);
 	
 	for (var i = files.length - 1; i >= 0; i--) {
