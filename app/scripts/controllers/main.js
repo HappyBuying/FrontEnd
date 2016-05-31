@@ -8,13 +8,20 @@
  * Controller of the happyBuyingApp
  */
 angular.module('happyBuyingApp')
-  .controller('MainCtrl', function ($scope,$routeParams,properties,propertyImages) {
+  .controller('MainCtrl',['properties','propertyImages', function ($scope,$routeParams,properties,propertyImages) {
     $scope.property = {};
     
-    $scope.saveFile = function(){
-        if ($scope.property.image) {
-           propertyImages.images.push($scope.property.image);            
-        };
+    $scope.saveFile = function(element){
+
+      element.bind('change', function(e) {          
+        var scope = element.scope();
+        scope.$apply(function(){
+        scope.property.images = files;
+        });    
+        if (files) {
+           propertyImages.images.push(files);            
+        }
+      });  
     };
     //array of features for checkboxes
     $scope.features = ["Air conditioning", "Balcony", "Bedding", "Cable TV", "Cleaning after exit", "Cofee pot", 
@@ -35,7 +42,7 @@ angular.module('happyBuyingApp')
 
 
   
-})
+}])
 
 
  

@@ -29,7 +29,7 @@
                                 <i class="fa fa-upload"></i> <span>Upload Images</span>                                
                              </label>
                              <input type='file' name='location.img' id='imgUpload' 
-                             ng-change='saveFile()' ng-model="property.image" thumbnail multiple/>
+                             save ='saveFile(this)' ng-model="property.images" thumbnail multiple/>
                          </div>
                          <!-- /.form-group -->
                      </div>
