@@ -141,7 +141,7 @@
                                 <i class="fa fa-upload"></i> <span>Upload Images</span>                                
                              </label>
                              <input type='file' name='location.img' id='imgUpload' 
-                             onchange= 'generateThumbnail(this)' multiple/>
+                             save ='saveFile(this)' ng-model="property.images" thumbnail multiple/>
                          </div>
                          {{property.images}}
                          <!-- /.form-group -->

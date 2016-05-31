@@ -8,7 +8,8 @@
  * Controller of the happyBuyingApp
  */
 angular.module('happyBuyingApp')
-  .controller('MainCtrl', function ($scope,$routeParams,properties) {
+
+  .controller('MainCtrl', function ($scope,$routeParams,properties,propertyImages) {
     $scope.property = {};
 
     $scope.company = {};
@@ -16,6 +17,19 @@ angular.module('happyBuyingApp')
     $scope.prop_company = {};
     $scope.prop_company.property = $scope.property;
     $scope.prop_company.company = $scope.company;
+   
+    $scope.saveFile = function(element){
+
+      element.bind('change', function(e) {          
+        var scope = element.scope();
+        scope.$apply(function(){
+        scope.property.images = files;
+        });    
+        if (files) {
+           propertyImages.images.push(files);            
+        }
+      });  
+    };
 
 
     //array of features for checkboxes
@@ -26,16 +40,18 @@ angular.module('happyBuyingApp')
                                   "Use of pool"];
 
 
+
+
      //save property call                               
      $scope.saveProperty = function(prop_company){
         console.log(prop_company);
         properties.saveProperty(prop_company);
      };
 
-    
+
 
   
-})
+}])
 
 
  
