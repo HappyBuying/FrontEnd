@@ -11,12 +11,13 @@ angular.module('happyBuyingApp')
 
   .controller('MainCtrl', function ($scope,$routeParams,properties,propertyImages) {
     $scope.property = {};
-
+    $scope.property.images = propertyImages.images;
     $scope.company = {};
   
     $scope.prop_company = {};
     $scope.prop_company.property = $scope.property;
     $scope.prop_company.company = $scope.company;
+
    
     $scope.saveFile = function(element){
 

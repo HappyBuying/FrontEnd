@@ -19,5 +19,10 @@ label[for="imgUpload"]{
 	margin-bottom: 10px;
 	}
 
+.imgCell{
+	display: inline-block;
+    float: left;
+    margin: 5px;
+}
 
 }
