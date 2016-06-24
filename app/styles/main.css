@@ -25,4 +25,20 @@ label[for="imgUpload"]{
     margin: 5px;
 }
 
+.logo { width: 30px; }
+
+
+.add-plot{
+	position: relative;
+	float: left;
+	box-shadow: none;
+	top: auto;
+	border: none;
 }
+.feature.img{
+	margin-right: 5px;
+}
+
+.property-size input{margin-bottom: 10px;}
+
+.angular-google-map-container { height: 400px; }
