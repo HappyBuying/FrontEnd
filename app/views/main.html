@@ -198,60 +198,60 @@
                    
                 </div>
                 <div class="row">
-                    <div class="plot-container col-xs-12" ng-repeat="size in property.sizes">
+                    <div class="plot-container col-xs-12" ng-repeat="unit in property.units">
                         <div class="row">
                             <div class="form-group col-xs-4">
                                <label>Property Size</label>
                                    <div class="property-size">
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="text" class="form-control" ng-model="unit.size">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">
                                <label>Number of towers</label>
                                    <div class="property-size" >
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.towerCount">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">
                                <label>Height of tower</label>
                                    <div class="property-size" >
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.towerHeight">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">
                                <label>Bedroom(s)</label>
                                    <div class="property-size">
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.bedrooms">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">
                                <label>Bathroom(s)</label>
                                    <div class="property-size" >
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.bathrooms">
                                     </div>
                             </div>
                              <div class="form-group col-xs-4">
                                <label>Dining + Living</label>
                                    <div class="property-size">
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.livingrooms">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">
                                <label>Kitchen</label>
                                    <div class="property-size">
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.kitchenArea">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">
                                <label>Balconies</label>
                                    <div class="property-size">
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.balconies">
                                     </div>
                             </div>
                              <div class="form-group col-xs-4">
-                               <label>utility balcony</label>
+                               <label>Store room/ passage/ additional</label>
                                    <div class="property-size">
-                                            <input type="text" class="form-control" ng-model="size.size">
+                                            <input type="number" class="form-control" ng-model="unit.others">
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">                                
@@ -280,7 +280,7 @@
                      <a href="#/" class="btn btn-primary" ng-click="saveProperty(prop_company)">Submit Property</a>
                  </div>
                  <!-- /.center -->
-             </form>
+             </form>{{property}}
          </div>
          <!-- /.content -->
      </div>

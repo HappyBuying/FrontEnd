@@ -19,7 +19,17 @@ angular.module('happyBuyingApp')
     $scope.prop_company.property = $scope.property;
     $scope.prop_company.company = $scope.company;
     $scope.features = {};
-    $scope.property.sizes = [{'size':''}];
+    $scope.property.units = [{
+      size        : '',
+      towerCount  : '',
+      towerHeight : '',
+      bedrooms    : [],
+      bathrooms   : [],
+      livingrooms : [],
+      kitchenArea : '',
+      balconies   : [],
+      others      : []
+    }];
 
     $scope.geocoder = new google.maps.Geocoder();
     NgMap.getMap().then(function(map) {
@@ -62,7 +72,17 @@ angular.module('happyBuyingApp')
                                    {"name":"Guest House", "image":"Home.png"},{"name":"Concierge Desk", "image":"Front_Desk.png",},{"name":"Centralised AC", "image":"Central_Heating.png"}
                                    ];
    $scope.addPlot = function(){
-      $scope.property.sizes.push({'size':''});
+      $scope.property.units.push({
+        size        : '',
+        towerCount  : '',
+        towerHeight : '',
+        bedrooms    : [],
+        bathrooms   : [],
+        livingrooms : [],
+        kitchenArea : '',
+        balconies   : [],
+        others      : []
+      });
     };
 
      $scope.myfunc = function(event){
