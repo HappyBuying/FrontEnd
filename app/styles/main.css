@@ -4,7 +4,17 @@ label[for="imgUpload"]{
 	top:auto;
 }
 
+label[for="planUpload"]{
+	position: relative;
+	float: left;
+	top:auto;
+}
+
 #imgUpload{
+	display: none;  
+}
+
+#planUpload{
 	display: none;  
 }
 

@@ -1,16 +1,20 @@
 angular.module('happyBuyingApp')
 
-.directive('fileUpload', function(propertyImages) {
+.directive('fileUpload', function(serviceGetter) {
     return {
-        restrict: 'A',            
-        link: function(scope, element) {
+        restrict: 'A',
+        scope: true,            
+        link: function(scope, element, attrs) {
             element.bind('change', function(e) {
                 var files   	= e.target.files;
+                var elementScope = element.scope();
                 if (files){                                
                 	for (var i = files.length - 1; i >= 0; i--) {
                 		//console.log('loop entered');
                 		//console.log(clone);	
-                        propertyImages.images.push(files.item(i));             	            		
+                        serviceGetter.create(attrs.service);
+                        var service = serviceGetter.service;
+                        service.images.push(files.item(i));             	            		
                         var reader    = new FileReader();
                 		// read file and return content as a URL	
                 		reader.readAsDataURL(files[i]);
@@ -26,19 +30,24 @@ angular.module('happyBuyingApp')
                             cell.className = 'imgCell';
                             cell.appendChild(img);
                             cell.appendChild(icon);                         
-                	        document.getElementById('imageBlock').appendChild(cell);                        
+                	        document.getElementById(attrs.thumbnailbox).appendChild(cell);                        
                 	 		icon.onclick = function(){
-                                propertyImages.images.splice(i, 1);
+                                service.images.splice(i, 1);
                                 cell.style.display = "none";
-                                console.log(propertyImages.images);
-                                console.log(scope.property.images);
+                                //console.log(serviceGetter.create(attrs.type).images);                                
+                                console.log(elementScope.property.images);
+                                console.log(elementScope.property.plans);
                             }; 		
                 	 	};
                     }
                 }
 
-                console.log(propertyImages.images);
-                console.log(scope.property.images);
+                //console.log(serviceGetter.create(attrs.type).images);                                
+                console.log(elementScope.property.images);
+                console.log(elementScope.property.plans);
+                serviceGetter.service = '';
+                //console.log(propertyImages.images);
+                //console.log(scope.property.images);
 
 
 

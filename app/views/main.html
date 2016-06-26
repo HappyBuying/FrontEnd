@@ -20,11 +20,15 @@
                             <label class="header-action" for="imgUpload">
                                <i class="fa fa-upload"></i> <span>Upload Images</span>                                
                             </label>
-                            <input type='file' name='location.img' id='imgUpload' 
-                                ng-model="property.images" file-upload multiple/>
+                            <input type='file' name='location.img' id='imgUpload' accept="image/*" 
+                                ng-model="property.images" file-upload service="propertyImages" thumbnailbox= "imgThumbs" multiple/>
                         </div>
                         <!-- /.form-group -->
                     </div>
+                </div>
+
+                <div class="row">                                
+                    <div id="imgThumbs"></div>
                 </div>
                 <!-- /.form-group -->
                 <div class="page-header page-header-small">
@@ -251,17 +255,16 @@
                                     </div>
                             </div>
                             <div class="form-group col-xs-4">                                
-                                <label class="header-action" for="imgUpload">
-                                   <i class="fa fa-upload"></i> <span>Upload Images</span>                                
+                                <label class="header-action" for="planUpload">
+                                   <i class="fa fa-upload"></i> <span>Upload Plan</span>                                
                                 </label>
-                                <input type='file' name='location.img' id='imgUpload' 
-                                ng-model="property.images" file-upload multiple/>
+                                <input type='file' name='location.plan' id='planUpload' accept="image/*"
+                                ng-model="property.plans" file-upload service="propertyPlans" thumbnailbox = "planThumbs" multiple/>
                             </div>
-                            {{property.images}} 
-                            <div class="form-group col-xs-4">                                
-                                <div id="imageBlock"></div>
-                            </div>
-                            
+                            {{property.plans}}                            
+                        </div>
+                        <div class="row">                                
+                            <div id="planThumbs"></div>
                         </div>
                     </div>
                     <div class="add-plot-container col-xs-12">

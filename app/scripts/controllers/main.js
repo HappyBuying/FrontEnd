@@ -9,9 +9,10 @@
  */
 angular.module('happyBuyingApp')
 
-  .controller('MainCtrl', function ($scope,$routeParams,properties,propertyImages,NgMap) {
+  .controller('MainCtrl', function ($scope,$routeParams,properties,propertyImages,propertyPlans,NgMap) {
     $scope.property = {};
     $scope.property.images = propertyImages.images;
+    $scope.property.plans = propertyPlans.images;
     $scope.company = {};
   
     $scope.prop_company = {};
@@ -79,6 +80,8 @@ angular.module('happyBuyingApp')
           console.log('location', $scope.place);
         
      };
+
+
 
      //save property call                         
      $scope.saveProperty = function(prop_company){
