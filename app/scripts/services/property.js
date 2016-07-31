@@ -13,6 +13,9 @@ angular.module('happyBuyingApp')
         .success(function(data) {
           console.log("save property"+data);
         });
-    }
+    },
+
+	
+
   };
 }]);

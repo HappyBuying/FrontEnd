@@ -17,19 +17,29 @@ angular
     'ngSanitize',
     'ngTouch',
     'checklist-model',
-    'ngMap' 
+    'ngMap',
+    'naif.base64'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'main'
+      })
+      .when('/search', {
+        templateUrl: 'views/result.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
+      })
+      .when('/form/:company', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/property',{
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl',
       })
       .otherwise({
         redirectTo: '/'

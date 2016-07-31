@@ -9,34 +9,50 @@
  */
 angular.module('happyBuyingApp')
 
-  .controller('MainCtrl', function ($scope,$routeParams,properties,propertyImages,propertyPlans,NgMap) {
+  .controller('MainCtrl', function ($scope,$routeParams,properties,NgMap) {
     $scope.property = {};
-    $scope.property.images = propertyImages.images;
-    $scope.property.plans = propertyPlans.images;
-    $scope.company = {};
-  
-    $scope.prop_company = {};
-    $scope.prop_company.property = $scope.property;
-    $scope.prop_company.company = $scope.company;
+    $scope.property.company = $routeParams.company;
+    $scope.property.images=[];
+    $scope.property.address;
+    $scope.marker = {};
+    $scope.property.geolocation;
     $scope.features = {};
-    $scope.property.units = [{
-      size        : '',
-      towerCount  : '',
-      towerHeight : '',
-      bedrooms    : [],
-      bathrooms   : [],
-      livingrooms : [],
-      kitchenArea : '',
-      balconies   : [],
-      others      : []
-    }];
-
     $scope.geocoder = new google.maps.Geocoder();
     NgMap.getMap().then(function(map) {
+      console.log(map);
       console.log(map.getCenter());
-      console.log('markers', map.markers);
-      console.log('shapes', map.shapes);
+
     });
+    var geocoder = new google.maps.Geocoder();
+
+    var options = {
+                    enableHighAccuracy: true
+                };
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+                    $scope.position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                    $scope.marker.lat = $scope.position.lat();          
+                    $scope.marker.lng = $scope.position.lng();
+                    $scope.property.geolocation = $scope.position;
+                    geocoder.geocode({ 'latLng': $scope.position }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[1]) {
+                              $scope.$apply(function() { 
+                                $scope.property.address = results[1].formatted_address;
+
+                              });
+                                console.log($scope.property.address);
+                            } else {
+                                console.log('Location not found');
+                            }
+                        } else {
+                            console.log('Geocoder failed due to: ' + status);
+                        }
+                    });
+                }, 
+                function(error) {                    
+                    alert('Unable to get location: ' + error.message);
+                }, options);
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 20 };
 
@@ -65,6 +81,7 @@ angular.module('happyBuyingApp')
                                    {"name":"FireFighting System", "image":"Fire_Hydrant.png"},{"name":"Smoke/Heat Sensors", "image":"Fire_Alarm.png"},{"name":"Smart Card Access", "image":"Electronic_Identity_Card.png"},
                                    {"name":"Burglar Alarm", "image":"Fire_Alarm_Button.png"},{"name":"Intercom Facility", "image":"Phone.png"}
                                    ];
+
     $scope.features.convenience = [{"name":"Power Backup", "image":"Car_Battery.png"},{"name":"Market", "image":"Shopping_Cart.png"},{"name":"AC Waiting Lobby", "image":"Air_Conditioner.png"},
                                    {"name":"Solar Heating", "image":"Sun.png"},{"name":"Home Automation", "image":"Home_Automation.png"},{"name":"AC Common Areas", "image":"Air_Conditioner.png"},
                                    {"name":"Treated Water Supply", "image":"Water_Tower.png"},{"name":"High Speed Elevators", "image":"Elevator.png"},{"name":"Pre-school", "image":"Classroom.png"},
@@ -85,23 +102,55 @@ angular.module('happyBuyingApp')
       });
     };
 
-     $scope.myfunc = function(event){
+
+    $scope.myCallback = function(){
+              $scope.place = this.getPlace();
+              console.log($scope.place);
+              $scope.position = new google.maps.LatLng($scope.place.geometry.location.lat(), $scope.place.geometry.location.lng())
+              $scope.property.geolocation = $scope.position;
+              console.log('location', $scope.map.center);
+              NgMap.getMap().then(function(map) {
+                  console.log(map);
+                  map.setCenter($scope.position);
+                  console.log("map center",map.getCenter().lat());
+                  console.log($scope.property.address);
+                });
+    };
+
+     /*$scope.myfunc = function(event){
       $scope.map.center.latitude = event.latLng.lat();
       $scope.map.center.longitude = event.latLng.lng();
-      console.log(event);
-     };                            
+      var latlng = new google.maps.LatLng($scope.map.center.latitude, $scope.map.center.longitude);
+      geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+              if (results[1]) {
+                  $scope.pr.address = results[1].formatted_address;
+                  console.log($scope.marker.address);
+              } else {
+                  console.log('Location not found');
+              }
+          } else {
+              console.log('Geocoder failed due to: ' + status);
+          }
+      });
+     };   */                         
 
-     $scope.myCallback = function(){
-          $scope.place = this.getPlace();
-          console.log($scope.place);
-          $scope.map.center.latitude = $scope.place.geometry.location.lat();
-          $scope.map.center.longitude = $scope.place.geometry.location.lng();
-          $scope.marker.address = $scope.place.address;
-          console.log('location', $scope.place);
-        
+     $scope.loaderStart = function(event, reader, fileList, fileObjs, file, object){
+      console.log("loader started");
+      console.log(object);
+      console.log($scope.property.images);
+      console.log(reader);
+     };
+
+     $scope.loaderStop = function(event, reader, fileList, fileObjs, file, object){
+      console.log("loader stopped");
+      $scope.property.images.push(object);
      };
 
 
+     $scope.removeImage = function(index){
+      $scope.property.images.splice(index,1);
+     }
 
      //save property call                         
      $scope.saveProperty = function(prop_company){
